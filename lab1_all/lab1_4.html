@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задание 8</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--pico-background-color);
+                color: var(--pico-color);
+            }
+            table 
+            {
+                border-collapse: collapse; 
+                width: 100%;
+                margin: auto;
+                text-align: left;
+            }
+            .theme-switcher {
+                text-align: center;
+                margin: 20px;
+            }
+            td
+            {
+                border: 1px solid rgb(0, 0, 0); 
+                padding: 4px; 
+            }
+            .great{
+                background-color: rgba(58, 173, 58, 0.473);
+            }
+            .fine{
+                background-color: rgba(229, 255, 0, 0.989);
+            }
+            .satisfactorily{
+                background-color: rgba(173, 58, 58, 0.473);
+            }
+    
+        </style>
+        <link rel="stylesheet" href="pico-main/css/pico.min.css">
+    </head>
+
+    <body>
+        <section>
+            <div class="container">
+                <h2 style="text-align: center;">Лабораторная работа 1. Задание 8</h2>
+                <div class="theme-switcher">
+                    <button id="themeToggle">Переключить тему</button>
+                </div>
+                <table>
+                    <tr style="background-color: rgba(121, 185, 238, 0.61);font-weight: bold;">
+                        <td>Семестр</td>
+                        <td>Дисциплина</td>
+                        <td>ФИО преподователя</td>
+                        <td>Вид контроля</td>
+                        <td>Оценка, зачёт</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" align="center">1</td>
+                        <td>Иностранный язык</td>
+                        <td>Мосесова М. Э.</td>
+                        <td>Зачет</td>
+                        <td class="great"><font>Зачтено</font></td>
+                    </tr>
+                    <tr>
+                        <td>Баззы данных</td>
+                            <td>Ткаченко В. В.</td>
+                            <td>Экзамен</td>
+                            <td class="great"><font>5</font></td>
+                    </tr>
+                    <tr>
+                        <td>Алгоритмы</td>
+                        <td>Крамаренко Т. А.</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font >5</font></td>
+                    </tr>
+                    <tr>
+                        <td>Экономика фирмы</td>
+                        <td>Сироткин В А</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font >5</font></td>
+                    </tr>
+                    <tr>
+                        <td>Информационные технологии</td>
+                        <td>Кондратев В. Ю.</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font >5</font></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" align="center">2</td>
+                        <td>Дискретная математика</td>
+                        <td>Аршинов Г. А.</td>
+                        <td>Экзамен</td>
+                        <td class="fine"><font>4</font></td>
+                    </tr>
+                    <tr>
+                        <td>Алгоритмы и программирование</td>
+                            <td>Крамаренко Т. А.</td>
+                            <td>Экзамен</td>
+                            <td class="fine"><font>4</font></td>
+                    </tr>
+                    <tr>
+                        <td>Мат-анализ</td>
+                        <td>Павлов Д. А.</td>
+                        <td>Экзамен</td>
+                        <td class="satisfactorily"><font>3</font></td>
+                    </tr>
+                    <tr>
+                        <td>Безопасность жизнидеятельности</td>
+                        <td>Ефремова В. Н.</td>
+                        <td>Зачет</td>
+                        <td class="great"><font>Зачтено</font></td>
+                    </tr>
+                    <tr>
+                        <td>Социология и культура</td>
+                        <td>Шалин В. В.</td>
+                        <td>Зачет</td>
+                        <td class="great"><font>Зачтено</font></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" align="center">3</td>
+                        <td>Линейная алгебра</td>
+                        <td>Петунина И. А.</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font>Зачтено</font></td>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>История</td>
+                            <td>Терещенко О. В.</td>
+                            <td>Экзамен</td>
+                            <td class="great"><font>4</font></td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Мат-анализ</td>
+                        <td>Павлов Д. А.</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font>3</font></td>
+                    </tr>
+                    <tr>
+                        <td>Информатика</td>
+                        <td>Василенко И. И.</td>
+                        <td>Экзамен</td>
+                        <td class="great"><font>5</font></td>
+                    </tr>
+                    <tr>
+                        <td>Иностраный язык</td>
+                        <td>Мосесова М. Э.</td>
+                        <td>Зачет</td>
+                        <td class="great"><font>Зачтено</font></td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const themeToggle = document.getElementById("themeToggle");
+            themeToggle.addEventListener("click", () => {
+                const currentTheme = document.documentElement.getAttribute("data-theme");
+                const newTheme = currentTheme === "light" ? "dark" : "light";
+                document.documentElement.setAttribute("data-theme", newTheme);
+            });
+        </script>
+    </body>
+</html>

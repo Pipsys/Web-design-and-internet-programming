@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание группы</title>
+    <link rel="stylesheet" href="pico-main/css/pico.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+ 
+        }
+        h1, h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #4A90E2;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .table-container {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .day-schedule {
+            width: 30%;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .day-schedule h3 {
+
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+        .day-schedule table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .day-schedule th, .day-schedule td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .theme-switcher {
+                text-align: right;
+                margin: 20px;
+            }
+    </style>
+</head>
+<body>
+    
+    <header class="container">
+        <div class="theme-switcher">
+            <button id="theme-toggle" aria-label="Переключить тему">Тёмная тема</button>
+        </div> 
+        <h1>Расписание группы ПИз2202</h1>
+        <nav>
+            <ul>
+                <li><a href="#week1">1 неделя</a></li>
+                <li><a href="#week2">2 неделя</a></li>
+            </ul>
+        </nav> 
+    </header>
+
+    <section id="week1">
+        <h2>1 неделя</h2>
+        <div class="table-container">
+            <div class="day-schedule">
+                <h3>Понедельник</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35-17:05</td>
+                        <td>Веб-дизайн и интернет-программирование</td>
+                        <td>417эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Проектирование информационных систем</td>
+                        <td>214эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Вторник</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Методы хранения и анализа данных</td>
+                        <td>214эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Информационная безопасность</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Среда</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Веб-дизайн и интернет-программирование</td>
+                        <td>417эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Методы хранения и анализа данных</td>
+                        <td>6эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Четверг</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Проектирование информационных систем, зачет</td>
+                        <td>422эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Теория систем и системный анализ</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Пятница</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Исследование операций и методы оптимизации</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Суббота</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Архитектура информационных систем</td>
+                        <td>111эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Архитектура информационных систем</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer class="container">
+            <nav>
+                <a href="#top">Наверх</a>
+            </nav>
+        </footer>
+    </section>
+
+    <section id="week2">
+        <h2>2 неделя</h2>
+        <div class="table-container">
+            <div class="day-schedule">
+                <h3>Понедельник</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>11:30 - 13:00</td>
+                        <td>Методы хранения и анализа данных</td>
+                        <td>112гд</td>
+                    </tr>
+                    <tr>
+                        <td>13:50 - 15:20</td>
+                        <td>Методы хранения и анализа данных</td>
+                        <td>112гд</td>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Исследование операций и методы оптимизации</td>
+                        <td>111эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Теория систем и системный анализ</td>
+                        <td>346мх</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Вторник</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Веб-дизайн и интернет-программирование</td>
+                        <td>416эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Иностранный язык, зачет</td>
+                        <td>405зоо</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Среда</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Веб-дизайн и интернет-программирование</td>
+                        <td>417эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Методы хранения и анализа данных</td>
+                        <td>6эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Четверг</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Проектирование информационных систем, зачет</td>
+                        <td>422эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Теория систем и системный анализ</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Пятница</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Исследование операций и методы оптимизации</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="day-schedule">
+                <h3>Суббота</h3>
+                <table>
+                    <tr>
+                        <th>Время</th>
+                        <th>Предмет</th>
+                        <th>Аудитория</th>
+                    </tr>
+                    <tr>
+                        <td>15:35 - 17:05</td>
+                        <td>Архитектура информационных систем</td>
+                        <td>111эл</td>
+                    </tr>
+                    <tr>
+                        <td>17:20 - 18:50</td>
+                        <td>Архитектура информационных систем</td>
+                        <td>111эл</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer class="container">
+            <nav>
+                <a href="#top">Наверх</a>
+            </nav>
+        </footer>
+    </section>
+
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+            if (document.documentElement.getAttribute("data-theme") === "dark") {
+                document.documentElement.setAttribute("data-theme", "light");
+                themeToggle.textContent = "Тёмная тема";
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeToggle.textContent = "Светлая тема";
+            }
+        });
+    </script>
+</body>
+</html>
