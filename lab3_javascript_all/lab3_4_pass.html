@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оценка сложности пароля</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu-center">
+                <li><a href="#">Просмотреть работы ▼</a>
+                    <ul>
+                        <li><a href="../home.html">Домашняя страница</a></li>
+                        <li><a href="lab3_1_calc.html">Лабораторная lab3_1</a></li>
+                        <li><a href="lab3_2_bank.html">Лабораторная lab3_2</a></li>
+                        <li><a href="lab3_3_clock.html">Лабораторная lab3_3</a></li>
+                        <li><a href="lab3_4_pass.html">Лабораторная lab3_4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Оценка сложности пароля</h2>
+        <label for="password">Введите пароль:</label>
+        <input type="text" id="password" placeholder="Введите пароль">
+        <button id="checkPassword">Оценить сложность</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('checkPassword').onclick = function() {
+            const password = document.getElementById('password').value;
+            let score = 0;
+            let criteria = [];
+
+            // 1. Длина пароля
+            if (password.length < 5) {
+                criteria.push("Длина менее 5: 0 баллов");
+            } else if (password.length >= 5 && password.length <= 9) {
+                score += 1;
+                criteria.push("Длина 5-9: 1 балл");
+            } else if (password.length >= 10 && password.length <= 12) {
+                score += 2;
+                criteria.push("Длина 10-12: 2 балла");
+            } else {
+                score += 3;
+                criteria.push("Длина свыше 12: 3 балла");
+            }
+
+            // 2. Символы
+            let types = 0;
+            if (/[a-zA-Z]/.test(password)) types++; // буквы
+            if (/\d/.test(password)) types++; // цифры
+            if (/[^a-zA-Z\d]/.test(password)) types++; // спецсимволы
+            if (types === 1) criteria.push("1 тип символов");
+            if (types === 2) {
+                score += 1;
+                criteria.push("2 типа символов: 1 балл");
+            }
+            if (types === 3) {
+                score += 2;
+                criteria.push("3 типа символов: 2 балла");
+            }
+
+            // 3. Регистр букв
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+                score += 1;
+                criteria.push("Регистр букв: 1 балл");
+            }
+
+            // 4. Иные символы
+            let nonAlphanumericCount = password.replace(/[a-zA-Z0-9]/g, '').length;
+            if (nonAlphanumericCount / password.length > 0.3) {
+                score += 2;
+                criteria.push("Иные символы > 30%: 2 балла");
+            }
+
+            // 5. Сочетания букв/цифр подряд менее 3 символов
+            if (/(abc|123|xyz|789)/i.test(password)) {
+                score += 2;
+                criteria.push("Сочетания букв/цифр подряд менее 3: 2 балла");
+            }
+
+            // Показать результат
+            let resultText = `<strong>Итоговая оценка: ${score} баллов</strong><br>`;
+            resultText += "<strong>Подошедшие критерии:</strong><br>";
+            resultText += criteria.join('<br>');
+
+            document.getElementById('result').innerHTML = resultText;
+        };
+    </script>
+</body>
+<footer>
+    <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+</footer>
+</html>

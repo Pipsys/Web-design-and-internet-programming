@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid lab2_7</title>
+    <link rel="stylesheet" href="../../lab1_all/style.css">
+    <style>
+        .container_1 {
+            column-gap: 10px;
+            gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(12, 80px);
+            grid-template-rows: 100px 280px 300px 150px 100px;
+            justify-content: center;
+        }
+        .item {
+            padding: 10px;
+            margin: 1px;
+            border: 1px black solid;
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 350;
+        }
+
+        .item_1 {
+            grid-column: 1/3;
+            background-color: #3498db;
+            overflow: scroll;
+            scrollbar-width: none;
+        }
+        .item_2 {
+            grid-column: 3/12;
+            background-color: #2ecc71;
+        }
+        .item_4 {
+            grid-column: 1/13;
+            background-color: #2980b9;
+        }
+        .item_5 {
+            grid-column: 1/5;
+            background-color: #9b59b6;
+        }
+        .item_6 {
+            grid-column: 5/9;
+            background-color: #744586;
+        }
+        .item_7 {
+            grid-column: 9/13;
+            background-color: #d35400;
+        }
+        .item_8 {
+            grid-column: 1/7;
+            background-color: #8e44ad;
+        }   
+        .item_9 {
+            grid-column: 7/13;
+            background-color: #f1c40f;
+        }
+        .item_10 {
+            grid-column: 1/13;
+            background-color: #2c3e50;
+        }
+        
+        .main {
+            grid-column: 2/4;
+            background-color: #fdfdfd;
+            padding: 3px;
+        }
+        .menu {
+            background-color: hsl(0, 0%, 100%);
+            padding: 10px;
+            grid-column: 1/2;
+            grid-row: 2/3;
+            align-self: start;
+            
+            left: 0;
+            top: 100px;
+            width: 200px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+
+<header>
+    <nav>
+        <ul class="menu-center">
+            <li><a href="#">Просмотреть работы ▼</a>
+                <ul>
+                    <li><a href="../../home.html">Домашняя страница</a></li>
+                    <li><a href="Grid.html">Лабораторная Grid_1</a></li>
+                    <li><a href="Grid_2.html">Лабораторная Grid_2</a></li>
+                    <li><a href="../redirect/index.html">Лабораторная redirect</a></li>
+                    
+          
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+        
+        
+        <div class="item main">
+            <div class="container_1">
+                <div class="item item_1">#3498db</div>
+                <div class="item item_2">#2ecc71</div>
+                <div class="item item_3" style="background-color:#e67e22; overflow: scroll; scrollbar-width: none;">#e67e22</div>
+                <div class="item item_4">#2980b9</div>
+                <div class="item item_5">#9b59b6</div>
+                <div class="item item_6">#744586</div>
+                <div class="item item_7">#d35400</div>
+                <div class="item item_8">#8e44ad</div>
+                <div class="item item_9">#f1c40f</div>
+                <div class="item item_10">#2c3e50</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

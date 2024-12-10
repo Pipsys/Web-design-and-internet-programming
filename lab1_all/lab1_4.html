@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Задание 8</title>
+        
+    
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -40,9 +42,41 @@
     
         </style>
         <link rel="stylesheet" href="pico-main/css/pico.min.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
+    <div id="custom-header">
+        <script>
+            const header = document.createElement('header');
+            const shadow = document.querySelector('#custom-header').attachShadow({ mode: 'open' });
+    
+            shadow.innerHTML = `
+            <link rel="stylesheet" href="style.css">
+            <header>
+                <nav>
+                    <ul class="menu-center">
+                        <li><a href="#">Просмотреть работы ▼</a>
+                            <ul>
+                                <li><a href="../home.html">Домашняя страница</a></li>
+                                <li><a href="lab1_1.html">Лабораторная lab1_1</a></li>
+                                <li><a href="lab1_2.html">Лабораторная lab1_2</a></li>
+                                <li><a href="lab1_3.html">Лабораторная lab1_3</a></li>
+                                <li><a href="lab1_4.html">Лабораторная lab1_4</a></li>
+                                <li><a href="lab1_5.html">Лабораторная lab1_5</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            `;
+        </script>
+    </div>
+
+    
+
     <body>
+        
         <section>
             <div class="container">
                 <h2 style="text-align: center;">Лабораторная работа 1. Задание 8</h2>

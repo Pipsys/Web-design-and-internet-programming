@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Калькулятор</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu-center">
+                <li><a href="#">Просмотреть работы ▼</a>
+                    <ul>
+                        <li><a href="../home.html">Домашняя страница</a></li>
+                        <li><a href="lab3_1_calc.html">Лабораторная lab3_1</a></li>
+                        <li><a href="lab3_2_bank.html">Лабораторная lab3_2</a></li>
+                        <li><a href="lab3_3_clock.html">Лабораторная lab3_3</a></li>
+                        <li><a href="lab3_4_pass.html">Лабораторная lab3_4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="calculator">
+        <h2>Калькулятор</h2>
+        
+        <label for="operand1">Операнд 1:</label>
+        <input type="text" id="operand1">
+        
+        <label for="operand2">Операнд 2:</label>
+        <input type="text" id="operand2">
+        
+        <label for="operator">Операция:</label>
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="sqrt">Квадратный корень</option>
+            <option value="log">Логарифм</option>
+        </select>
+
+        <div id="logBaseDiv">
+            <label for="logBase">Основание логарифма:</label>
+            <input type="text" id="logBase">
+        </div>
+
+        <label for="round">Округлить до 3-х знаков:</label>
+        <input type="checkbox" id="round">
+        
+        <button id="doCalc">Вычислить</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const operand1 = document.getElementById('operand1');
+        const operand2 = document.getElementById('operand2');
+        const operator = document.getElementById('operator');
+        const logBaseDiv = document.getElementById('logBaseDiv');
+        const logBase = document.getElementById('logBase');
+        const doCalc = document.getElementById('doCalc');
+        const resultContainer = document.getElementById('result');
+        const roundCheckbox = document.getElementById('round');
+
+        operator.onchange = function() {
+            if (operator.value === 'log') {
+                logBaseDiv.style.display = 'block';
+                operand2.disabled = true;
+            } else if (operator.value === 'sqrt') {
+                logBaseDiv.style.display = 'none';
+                operand2.disabled = true;
+            } else {
+                logBaseDiv.style.display = 'none';
+                operand2.disabled = false;
+            }
+        };
+
+        doCalc.onclick = function() {
+            let result = null;
+            let a = +operand1.value;
+            let b = +operand2.value;
+
+            if (isNaN(a) || (operator.value !== 'sqrt' && operator.value !== 'log' && isNaN(b))) {
+                result = 'Введите корректные данные';
+                resultContainer.classList.add('error');
+            } else {
+                switch (operator.value) {
+                    case '+':
+                        result = a + b;
+                        break;
+                    case '-':
+                        result = a - b;
+                        break;
+                    case '*':
+                        result = a * b;
+                        break;
+                    case '/':
+                        result = a / b;
+                        break;
+                    case 'sqrt':
+                        result = Math.sqrt(a);
+                        break;
+                    case 'log':
+                        const base = +logBase.value;
+                        if (base <= 0 || base === 1) {
+                            result = 'Основание логарифма должно быть > 0 и ≠ 1';
+                        } else {
+                            result = Math.log(a) / Math.log(base);
+                        }
+                        break;
+                }
+
+                if (roundCheckbox.checked && !isNaN(result)) {
+                    result = result.toFixed(3);
+                }
+                
+                resultContainer.classList.remove('error');
+            }
+
+            resultContainer.innerHTML = result;
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+    </footer>
+</body>
+</html>

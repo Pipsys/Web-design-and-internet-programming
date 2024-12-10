@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Банковские карты</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<header>
+    <nav>
+        <ul class="menu-center">
+            <li><a href="#">Просмотреть работы ▼</a>
+                <ul>
+                    <li><a href="../home.html">Домашняя страница</a></li>
+                    <li><a href="lab3_1_calc.html">Лабораторная lab3_1</a></li>
+                    <li><a href="lab3_2_bank.html">Лабораторная lab3_2</a></li>
+                    <li><a href="lab3_3_clock.html">Лабораторная lab3_3</a></li>
+                    <li><a href="lab3_4_pass.html">Лабораторная lab3_4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div>
+        <h1>Банковские карты</h1>
+        <div id="cards">
+            <img src="img/visa.png" id="visa">
+            <img src="img/mc.png" id="mc">
+            <img src="img/maestro.jpeg" id="maestro">
+            <img src="img/jcbcard.jpg" id="jcb">
+            <img src="img/mir.png" id="mir">
+        </div>
+        <input type="text" id="cardNumberText" placeholder="Введите номер карты">
+        <input type="button" value="Проверить" id="cardCheck">
+        <div id="result"></div>
+    </div>
+    <script>
+        // Вспомогательная функция для быстрого доступа к getElementById
+        const getID = (id) => document.getElementById(id);
+
+        // Получаем элементы для использования в дальнейшем
+        const cardNumberText = getID('cardNumberText');
+        const cardCheck = getID('cardCheck');
+        const resultContainer = getID('result');
+        const cards = getID('cards');
+
+        // Проверка на то, что строка содержит только цифры
+        String.prototype.isNumber = function () {
+            return /^\d+$/.test(this);
+        };
+
+        // Очистка классов изображений карт
+        cardNumberText.oninput = function () {
+            clearClass();
+        };
+
+        // Нажатие на кнопку "Проверить"
+        cardCheck.onclick = function () {
+            let result;
+            let card;
+
+            // Очистка выделения карты
+            clearClass();
+
+            const cardNumber = cardNumberText.value;
+
+            // Проверка на длину и содержимое
+            if (!cardNumber.isNumber() || cardNumber.length !== 16) {
+                result = 'Неверно введен номер карты';
+            } else if (!checkLuhn(cardNumber)) {
+                result = 'Номер карты некорректен (контрольная сумма не сходится)';
+            } else {
+                result = "Номер карты правильный";
+
+                // Определяем тип карты
+                card = getID(checkCardByNumber(cardNumber));
+                if (card) {
+                    card.className = 'hl';
+                } else {
+                    result = "Тип карты не определен";
+                }
+            }
+
+            // Выводим результат проверки
+            resultContainer.innerHTML = result;
+        };
+
+        // Функция для проверки номера карты и определения её типа
+        const checkCardByNumber = function (cardNumber) {
+            const firstDigit = +cardNumber[0];
+            const firstTwoDigits = +cardNumber.slice(0, 2);
+
+            if (firstDigit === 4) return 'visa'; // Visa
+            if (firstDigit === 5) return 'mc'; // MasterCard
+            if (firstTwoDigits === 62) return 'jcb'; // JCB
+            if (firstTwoDigits === 22) return 'mir'; // МИР
+            if ([50, 56, 57, 58, 63, 67].includes(firstTwoDigits)) return 'maestro'; // Maestro
+            if (firstTwoDigits === 40) return 'visael'; // Visa Electron
+        };
+
+        // Реализация алгоритма Луна
+        const checkLuhn = function (cardNumber) {
+            let sum = 0;
+            let shouldDouble = false;
+
+            // Проходим по цифрам с конца
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = +cardNumber[i];
+
+                if (shouldDouble) {
+                    digit *= 2;
+                    if (digit > 9) digit -= 9;
+                }
+
+                sum += digit;
+                shouldDouble = !shouldDouble;
+            }
+
+            // Проверка: сумма должна быть кратна 10
+            return sum % 10 === 0;
+        };
+
+        // Очистка классов (вызывается при изменении номера карты)
+        const clearClass = function () {
+            const cardImage = document.querySelector('#cards img.hl');
+            if (cardImage) cardImage.classList.remove('hl');
+        };
+    </script>
+</body>
+
+    <footer>
+        <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+    </footer>
+</html>

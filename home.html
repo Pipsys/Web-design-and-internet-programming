@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты по лабораторным работам</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu-center">
+                <li><a href="#">Просмотреть работы ▼</a>
+                    <ul>
+                        <li><a href="lab1_all/lab1_1.html">Лабораторная 1</a></li>
+                        <li><a href="lab2_wp/grid/Grid.html">Лабораторная 2</a></li>
+                        <li><a href="lab3_javascript_all/lab3_1_calc.html">Лабораторная 3</a></li>
+                        <li><a href="lab4.html">Лабораторная 4</a></li>
+                        <li><a href="lab5.html">Лабораторная 5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="theme-switch" id="themeSwitch">🌙</button>
+    </header>
+    <div class="container">
+        <div class="card">
+            <h2>Личная информация</h2>
+            <p><strong>ФИО:</strong> Давыдов Игорь Юрьевич</p>
+            <p><strong>Группа:</strong> ПИз2202</p>
+            <p><strong>Ссылка на</strong> <a href="https://igor-davidov.tilda.ws/" target="_blank" rel="noopener noreferrer">Tilda</a></p>
+        </div>
+        <div class="card">
+            <h2>Прогресс по лабораторным работам</h2>
+            <p id="progress-display">Сдано: <span id="completed">5</span>/5 на 11.12.2024</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

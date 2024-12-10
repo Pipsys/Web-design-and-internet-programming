@@ -1,0 +1,8 @@
+
+
+#Require valid-user
+#AuthName "Private page"
+#Authtype Basic
+#AuthUserFile "/Web-design-and-internet-programming/lab2_wp/admin/.htpasswd"
+
+Options +indexes

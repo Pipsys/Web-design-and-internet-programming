@@ -1,0 +1,307 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    color: #333;
+    padding-top: 0; 
+}
+
+:root {
+    --background-color: #141e30;
+    --text-color: #fff;
+    --card-background: #1e2b45;
+    --button-background: linear-gradient(to right, #ff7e5f, #feb47b);
+    --button-hover: linear-gradient(to right, #feb47b, #ff7e5f);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed; 
+    background-color: var(--card-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-center {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.menu-center li {
+    position: relative;
+
+}
+
+.menu-center li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.menu-center li a:hover {
+    background: var(--button-hover);
+    color: var(--background-color);
+    transform: scale(1.1);
+}
+
+.menu-center li ul {
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: var(--card-background);
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.menu-center li:hover > ul {
+    display: block;
+}
+
+.menu-center li ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-center li ul li a:hover {
+    background: var(--button-hover);
+    color: var(--background-color);
+}
+
+.theme-switch {
+    padding: 10px;
+    background: var(--card-background);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.theme-switch:hover {
+    background: var(--button-hover);
+    color: var(--background-color);
+}
+footer {
+    background-color: var(--card-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.calculator {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+select {
+    background-color: #f9f9f9;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#logBaseDiv {
+    display: none;
+    margin-top: 10px;
+}
+
+#round {
+    margin-left: 5px;
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+#cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Расстояние между картами */
+    padding: 20px;
+}
+
+#cards img {
+    width: 180px; /* Ширина изображений */
+    height: 80px; /* Высота изображений */
+    object-fit: contain; /* Сохранение пропорций */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень под картами */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+}
+
+#cards img:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Более глубокая тень при наведении */
+}
+
+.hl {
+    outline: 3px solid #ff7e5f; /* Подсветка выбранной карты */
+    transform: scale(1.2); /* Увеличение выбранной карты */
+    transition: transform 0.3s ease, outline 0.3s ease; /* Плавный переход */
+}
+
+/* Стили для поля ввода */
+#cardNumberText {
+    width: 300px; /* Ширина */
+    height: 30px; /* Высота */
+    padding: 5px 10px; /* Внутренние отступы */
+    font-size: 14px; /* Размер шрифта */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Анимация */
+}
+
+/* Изменение стиля при фокусе */
+#cardNumberText:focus {
+    border-color: #ff7e5f; /* Цвет границы при фокусе */
+    box-shadow: 0 2px 8px rgba(255, 126, 95, 0.4); /* Тень при фокусе */
+    outline: none; /* Убираем стандартное выделение */
+}
+
+/* Стили для кнопки */
+#cardCheck {
+    height: 35px; /* Высота */
+    padding: 0 15px; /* Внутренние отступы */
+    font-size: 14px; /* Размер шрифта */
+    color: #fff; /* Цвет текста */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Градиент фона */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background 0.3s ease, transform 0.3s ease; /* Анимация */
+}
+
+/* Эффект при наведении */
+#cardCheck:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f); /* Градиент при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Расстояние между полем ввода и кнопкой */
+#cardNumberText, #cardCheck {
+    margin-right: 10px; /* Отступ справа */
+}
+
