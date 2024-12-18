@@ -1,8 +1,4 @@
-
-
-#Require valid-user
-#AuthName "Private page"
-#Authtype Basic
-#AuthUserFile "/Web-design-and-internet-programming/lab2_wp/admin/.htpasswd"
-
-Options +indexes
+AuthName "Restricted area"
+AuthType Basic
+AuthUserFile /home/davyidov/public_html/lab2_wp/admin/.htpasswd
+Require valid-user

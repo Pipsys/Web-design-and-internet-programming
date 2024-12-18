@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Банковские карты</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <header>
@@ -34,7 +33,7 @@
             <img src="img/mir.png" id="mir">
         </div>
         <input type="text" id="cardNumberText" placeholder="Введите номер карты">
-        <input type="button" value="Проверить" id="cardCheck">
+        <input type="button" value="Проверить" id="cardCheck" style="width: auto; padding: auto;">
         <div id="result"></div>
     </div>
     <script>
@@ -52,8 +51,12 @@
             return /^\d+$/.test(this);
         };
 
-        // Очистка классов изображений карт
+        // Форматирование номера карты (добавление пробелов)
         cardNumberText.oninput = function () {
+            let value = cardNumberText.value.replace(/\D/g, ''); // Убираем все нечисловые символы
+            let formatted = value.match(/.{1,4}/g)?.join(' ') || ''; // Группируем по 4 цифры и добавляем пробелы
+            cardNumberText.value = formatted;
+
             clearClass();
         };
 
@@ -65,7 +68,7 @@
             // Очистка выделения карты
             clearClass();
 
-            const cardNumber = cardNumberText.value;
+            const cardNumber = cardNumberText.value.replace(/\s/g, ''); // Убираем пробелы для проверки
 
             // Проверка на длину и содержимое
             if (!cardNumber.isNumber() || cardNumber.length !== 16) {
@@ -92,7 +95,6 @@
         const checkCardByNumber = function (cardNumber) {
             const firstDigit = +cardNumber[0];
             const firstTwoDigits = +cardNumber.slice(0, 2);
-
             if (firstDigit === 4) return 'visa'; // Visa
             if (firstDigit === 5) return 'mc'; // MasterCard
             if (firstTwoDigits === 62) return 'jcb'; // JCB
@@ -131,7 +133,7 @@
     </script>
 </body>
 
-    <footer>
-        <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
-    </footer>
+<footer>
+    <p>&copy; 2024 Давыдов Игорь | Контакты: <a href="https://t.me/igordavidowv">Telegram</a></p>
+</footer>
 </html>
